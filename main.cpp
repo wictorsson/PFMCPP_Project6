@@ -104,7 +104,7 @@ struct V
 {
     static float multiplyStatFunc(U* that, float* updatedValue)        //10
     {
-        if(updatedValue != nullptr)
+        if(updatedValue != nullptr && that !=nullptr)
         {
             std::cout << "U's <#name1#> value: " << that->var1 << std::endl;
             that->var1 = *updatedValue;
@@ -144,10 +144,10 @@ int main()
     
     compareStruct f;                                            //7
     auto* smaller = f.compare(&firstT ,&secondT);  
-        if(smaller != nullptr)
-        {                            //8
-            std::cout << "the smaller one is << " << smaller->name << std::endl; //9
-        }
+    if(smaller != nullptr)
+    {                            //8
+        std::cout << "the smaller one is << " << smaller->name << std::endl; //9
+    }
 
     U u;
     float updatedValue = 5.f;
