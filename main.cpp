@@ -104,7 +104,7 @@ struct V
 {
     static float multiplyStatFunc(U* that, float* updatedValue)        //10
     {
-        if(updatedValue != nullptr && that !=nullptr)
+        if(updatedValue != nullptr && that != nullptr)
         {
             std::cout << "U's <#name1#> value: " << that->var1 << std::endl;
             that->var1 = *updatedValue;
