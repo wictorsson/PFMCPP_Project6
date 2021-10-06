@@ -34,10 +34,11 @@ T::T(int v, const char* n) : value(v), name(n){}
 
 struct compareStruct                                //4
 {   
-    T compare(T& a, T& b) //5
+    T* compare(T& a, T& b) //5
     {     
-        if( a.value < b.value ) return a;
-        if( a.value > b.value ) return b;   
+        if( a.value < b.value ) return &a;
+        if( a.value > b.value ) return &b;
+        return nullptr;  
     }
 };
 
@@ -103,9 +104,12 @@ int main()
     T secondT(10, "Second T" );                                             //6
     
     compareStruct f;                                            //7
-    auto smaller = f.compare(firstT ,secondT);                                  //8
-    std::cout << "the smaller one is << " << smaller.name << std::endl; //9
+    auto* smaller = f.compare(firstT ,secondT);  
     
+                              //8
+    std::cout << "the smaller one is << " << smaller->name << std::endl; //9
+    
+
     U u;
     float updatedValue = 5.f;
     std::cout << "[static func] <#name3#>'s multiplied values: " << V::multiplyStatFunc(u, updatedValue) << std::endl;                  //11
